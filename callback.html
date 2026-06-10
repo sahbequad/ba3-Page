@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoodFlow Uploader – Login erfolgreich</title>
+<style>
+  body { font-family: -apple-system, sans-serif; max-width: 640px; margin: 60px auto; padding: 0 20px; color: #2b2622; line-height: 1.6; }
+  h1 { font-size: 1.4em; }
+  code { display: block; background: #faf6f0; border: 1px solid #e2d8ca; border-radius: 8px; padding: 14px; word-break: break-all; margin: 16px 0; font-size: 0.95em; }
+  button { background: #e2552c; color: #fff; border: 0; border-radius: 8px; padding: 10px 18px; font-size: 1em; cursor: pointer; }
+  .ok { color: #2e7d32; }
+</style>
+</head>
+<body>
+<h1>✅ TikTok-Login erfolgreich</h1>
+<p>Hier ist dein Autorisierungs-Code. Kopiere ihn und füge ihn im Upload-Script ein:</p>
+<code id="code">(kein Code in der URL gefunden)</code>
+<button onclick="navigator.clipboard.writeText(document.getElementById('code').textContent).then(()=>{document.getElementById('msg').textContent='Kopiert!'})">Code kopieren</button>
+<p id="msg" class="ok"></p>
+<script>
+  const p = new URLSearchParams(window.location.search);
+  const c = p.get("code");
+  if (c) document.getElementById("code").textContent = c;
+</script>
+</body>
+</html>
